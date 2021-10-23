@@ -13,7 +13,7 @@ output "sample2" {
 variable "Input" {}
 
 output "name33" {
-  value = var.sample2
+  value = var.Input
 }
 
 
