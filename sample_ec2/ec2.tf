@@ -12,14 +12,6 @@ resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
   description = "allow_ssh"
 
-  ingress = [
-    {
-      description      = "TLS from VPC"
-      from_port        = 22
-      to_port          = 22
-      protocol         = "tcp"
-    }
-  ]
 
   tags = {
     Name = "allow_tls"
