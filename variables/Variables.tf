@@ -44,3 +44,17 @@ output "values" {
   value = "string = ${var.string}, Number = ${var.number}, boolen = ${var.boolen}"
 }
 
+variable "fruits" {}
+output "fruits" {
+  value = var.fruits
+}
+
+variable "Country" {}
+output "Country" {
+  value = var.Country
+}
+
+variable "season" {}
+output "season" {
+  value = var.season
+}
