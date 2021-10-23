@@ -19,9 +19,9 @@ output "default" {
 }
 
 output "list" {
-  value = var.list
+  value = var.list[2]
 }
 
 output "maps" {
-  value = var.maps
+  value = var.maps.Course
 }
