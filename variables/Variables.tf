@@ -21,11 +21,11 @@ variable "string" {
   default = "sandeep"
 }
 variable "number" {
-   value =  100
+   default =  100
 }
 
 variable "boolen" {
-  value = false
+  default = false
 }
 
 output "string1" {
@@ -38,4 +38,8 @@ output "number2" {
 
 output "boolen" {
   value = var.boolen
+}
+
+output "values" {
+  value = "string = ${var.string}, Number = ${var.number}, boolen = ${var.boolen}"
 }
