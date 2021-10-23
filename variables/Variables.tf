@@ -9,3 +9,9 @@ output "name1" {
 output "sample2" {
   value = "${var.name}"
 }
+
+variable "sample2" {}
+
+output "name33" {
+  value = var.sample2
+}
