@@ -43,3 +43,4 @@ output "boolen" {
 output "values" {
   value = "string = ${var.string}, Number = ${var.number}, boolen = ${var.boolen}"
 }
+

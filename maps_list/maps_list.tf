@@ -3,7 +3,7 @@ variable "single_value" {
 }
 
 variable "list" {
-  default = ["hello", "world"]
+  default = ["live", "online"]
 }
 
 variable "maps" {
@@ -24,4 +24,7 @@ output "list" {
 
 output "maps" {
   value = var.maps.Course
+}
+output "statement" {
+  value = "${var.single_value} is attending ${var.list[1]} ${var.maps.Training} from ${var.maps.trainer}"
 }
