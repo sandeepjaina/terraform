@@ -54,7 +54,7 @@ output "Country" {
   value = var.Country
 }
 
-variable "season" {}
+variable "SEASON" {}
 output "season" {
-  value = var.season
+  value = var.SEASON
 }
