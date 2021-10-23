@@ -31,6 +31,25 @@ resource "aws_instance" "foo" {
 
 }
 
+resource "aws_security_group_rule" "sg_ingress" {
+  from_port         = 22
+  protocol          = "tcp"
+  security_group_id = aws_security_group.allow_tls.id
+  to_port           = 22
+  type              = "ingress"
+  cidr_blocks = ["0.0.0.0/0"]
+
+}
+
+resource "aws_security_group_rule" "sg_egress" {
+  from_port         = 0
+  protocol          = "-1"
+  security_group_id = aws_security_group.allow_tls.id
+  to_port           = 0
+  type              = "egress"
+  cidr_blocks = ["0.0.0.0/0"]
+}
+
 
 
 resource "aws_security_group" "allow_tls" {
@@ -38,28 +57,9 @@ resource "aws_security_group" "allow_tls" {
   description = "Allow TLS inbound traffic"
   vpc_id      = aws_vpc.my_vpc.id
 
-  ingress = [
-    {
-      description      = "TLS from VPC"
-      from_port        = 22
-      to_port          = 22
-      protocol         = "tcp"
-      cidr_blocks      = [aws_vpc.my_vpc.cidr_block]
-      ipv6_cidr_blocks = [aws_vpc.my_vpc.ipv6_cidr_block]
-    }
-  ]
-
-  egress = [
-    {
-      from_port        = 0
-      to_port          = 0
-      protocol         = "-1"
-      cidr_blocks      = ["0.0.0.0/0"]
-      ipv6_cidr_blocks = ["::/0"]
-    }
-  ]
 
   tags = {
     Name = "allow_tls"
   }
 }
+
