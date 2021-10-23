@@ -58,3 +58,8 @@ variable "SEASON" {}
 output "season" {
   value = var.SEASON
 }
+
+resource "aws_instance" "sandeep" {
+  ami = ""
+  instance_type = ""
+}
