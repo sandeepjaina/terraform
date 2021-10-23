@@ -31,3 +31,7 @@ resource "aws_security_group" "allow_tls" {
     Name = "allow_tls"
   }
 }
+
+provider "aws" {
+  region = "us-east-1"
+}
