@@ -3,11 +3,7 @@ variable "single_value" {
 }
 
 variable "list" {
-  default = [
-    "hello",
-  100,
-  true
-    "world"]
+  default = ["hello", "world"]
 }
 
 variable "maps" {
