@@ -19,7 +19,7 @@ output "default" {
 }
 
 output "list" {
-  value = var.list[2]
+  value = var.list[0]
 }
 
 output "maps" {
