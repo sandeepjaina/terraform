@@ -12,10 +12,7 @@ resource "aws_instance" "foo" {
 
 resource "aws_network_interface" "interface" {
   subnet_id = var.subnet
-  tags = {
-    name = sample_interface
   }
-}
 
 variable "subnet" {}
 variable "sg_id" {}
