@@ -14,6 +14,7 @@ module "ec" {
   source = "./ec2"
   subnet = module.vpc.subnet
   sg_id = module.sg.sgid
+  instance_type = "t3.micro"
 }
 
 provider "aws" {
