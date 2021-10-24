@@ -12,7 +12,7 @@ provider "aws" {
 terraform {
  backend "s3" {
    bucket = "sjaina-terraform"
-   key = "/sample/terraform.tfstate"
+   key = "sample/terraform.tfstate"
    region = "us-east-1"
  }
 }
