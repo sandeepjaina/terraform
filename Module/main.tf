@@ -15,3 +15,7 @@ module "ec" {
   subnet = module.vpc.subnet
   sg_id = module.sg.sgid
 }
+
+provider "aws" {
+  region = "us-east-1"
+}
