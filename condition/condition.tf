@@ -11,17 +11,10 @@ provider "aws" {
   region = "us-east-1"
 }
 
-terraform {
-  backend "s3" {
-    bucket = "sjaina-terraform"
-    key = "condition/terraform.tfstate"
-    region = "us-east-1"
-    dynamodb_table = "terraform_state"
-
-  }
-}
 
 variable "type" {
   default = null
 }
+
+
 
