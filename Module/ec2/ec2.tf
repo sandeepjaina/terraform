@@ -18,3 +18,7 @@ resource "aws_network_interface" "interface" {
 
 variable "subnet" {}
 variable "sg_id" {}
+
+output "IP" {
+  value = aws_instance.foo.*.private_ip
+}
