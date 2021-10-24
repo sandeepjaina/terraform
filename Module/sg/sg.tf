@@ -1,7 +1,7 @@
 resource "aws_security_group" "allow_tls" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic"
-  vpc_id      = [var.vpcid]
+  vpc_id      = [var.v_pcid]
 
 
   tags = {
@@ -28,8 +28,10 @@ resource "aws_security_group_rule" "sg_egress" {
   cidr_blocks = ["0.0.0.0/0"]
 }
 
-variable "vpcid" {}
+
 
 output "sgid" {
   value = aws_security_group.allow_tls.id
 }
+
+variable "v_pcid" {}

@@ -16,7 +16,7 @@ resource "aws_subnet" "my_subnet" {
   }
 }
 
-output "vpc" {
+output "vpcid" {
   value = aws_vpc.my_vpc.id
 }
 

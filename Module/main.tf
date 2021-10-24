@@ -6,7 +6,7 @@ module "vpc" {
 module "sg" {
   depends_on = [module.vpc]
   source = "./sg"
-  vpcid = module.vpc.vpc
+  v_pcid = module.vpc.vpcid
 }
 
 module "ec" {
