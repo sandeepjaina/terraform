@@ -16,6 +16,7 @@ terraform {
     bucket = "sjaina-terrafor"
     dynamodb_table = "terraform_state"
     key = "sample/terraform.tfstate"
+    region = "us-east-1"
 
   }
 }
