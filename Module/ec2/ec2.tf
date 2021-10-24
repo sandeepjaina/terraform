@@ -11,7 +11,7 @@ resource "aws_instance" "foo" {
 }
 
 resource "aws_network_interface" "interface" {
-  subnet_id = [var.subnet]
+  subnet_id = var.subnet
 }
 
 variable "subnet" {}
