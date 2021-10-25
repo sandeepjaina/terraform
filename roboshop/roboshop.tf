@@ -51,4 +51,3 @@ resource "aws_ec2_tag" "tagname" {
 output "securitygroups" {
   value = aws_spot_instance_request.roboshop.*.security_groups
 }
- variable "components" {}
