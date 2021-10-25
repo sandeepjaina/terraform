@@ -5,3 +5,7 @@ data "aws_ami" "ami_name" {
 output "sa" {
   value = data.aws_ami.ami_name
 }
+
+provider "aws" {
+  region = "us-east-1"
+}
