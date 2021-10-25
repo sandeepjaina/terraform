@@ -4,7 +4,7 @@ resource "aws_spot_instance_request" "roboshop" {
   ami = "ami-0e4e4b2f188e91845"
   instance_type = "t2.micro"
   wait_for_fulfillment = true
-  security_groups = [sg-02ce125a5b631895c]
+  security_groups = ["sg-02ce125a5b631895c"]
   #vpc_security_group_ids = [sg-e9533ef3]
   tags = {
     Name = element(var.components, count.index)
