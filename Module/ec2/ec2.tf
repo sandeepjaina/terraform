@@ -10,14 +10,17 @@ tags = {
 
 }
 
-resource "aws_network_interface" "interface" {
-  #count = 2
-  subnet_id = var.subnet
-  }
+output "SG_details" {
+  value = aws_instance.foo.security_groups}
 
-variable "subnet" {}
-variable "sg_id" {}
+//resource "aws_network_interface" "interface" {
+ // #count = 2
+ // subnet_id = var.subnet
+//  }
 
-output "IP" {
-  value = aws_instance.foo.*.private_ip
-}
+//variable "subnet" {}
+//variable "sg_id" {}
+
+//output "IP" {
+ // value = aws_instance.foo.*.private_ip
+//}
