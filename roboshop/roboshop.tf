@@ -9,6 +9,15 @@ resource "aws_spot_instance_request" "roboshop" {
   }
 
 }
+ resource "aws_security_group_rule" "SG_ingress" {
+   count            = length(var.components)
+   from_port         = 22
+   protocol          = "tcp"
+   security_group_id = element(aws_spot_instance_request.roboshop.security_groups,count.index)
+   to_port           = 0
+   type              = "ingress"
+ }
+
 
 
 
