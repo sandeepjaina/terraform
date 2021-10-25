@@ -2,6 +2,7 @@ resource "aws_instance" "foo" {
   count = 2
   ami           = "ami-0e4e4b2f188e91845" # us-west-2
   instance_type = "t2.micro"
+  security_groups = ["launch-wizard-6"]
 tags = {
   Name = "example-${count.index}"
 }
