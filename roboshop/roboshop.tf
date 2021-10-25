@@ -55,7 +55,7 @@ resource "aws_route53_record" "route" {
   type    = "A"
   zone_id = "Z05637993UP3Q4ZPSETFE"
   ttl = 300
-  records = element(aws_spot_instance_request.roboshop.*.private_ip, count.index )
+  records = element(aws_spot_instance_request.roboshop.*.private_ip, count.index)
 }
 
 output "securitygroups" {
