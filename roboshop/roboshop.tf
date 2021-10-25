@@ -43,7 +43,8 @@ resource "null_resource" "provisioning" {
     inline = [
       "cd /home/centos/",
       "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-scripting",
-      "cd shell-scripting/roboshop",
+      "mv shell-scripting/ shell-scripting_repo",
+      "cd shell-scripting_repo/roboshop",
       "sudo set-hostname ${element(var.components, count.index)}",
       "sudo make ${element(var.components, count.index)}"
     ]
