@@ -1,5 +1,5 @@
 resource "aws_spot_instance_request" "roboshop" {
-  count = length(var.components)
+  count = local.LENGTH
   spot_price    = "0.031"
   ami = "ami-0e4e4b2f188e91845"
   instance_type = "t2.micro"
@@ -21,7 +21,7 @@ resource "aws_security_group_rule" "SG_ingress" {
 
 
 resource "aws_ec2_tag" "tagname" {
-  count = length(var.components)
+  count = local.LENGTH
   key         = "Name"
   resource_id = element(aws_spot_instance_request.roboshop.*.spot_instance_id, count.index)
   value       = element(var.components, count.index)
@@ -51,3 +51,10 @@ resource "aws_ec2_tag" "tagname" {
 output "securitygroups" {
   value = aws_spot_instance_request.roboshop.*.security_groups
 }
+
+
+locals {
+  LENGTH    = length(var.components)
+}
+
+variable "components" {}
