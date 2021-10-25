@@ -54,6 +54,8 @@ resource "aws_route53_record" "route" {
   name    = element(var.components,count.index )
   type    = "A"
   zone_id = "Z05637993UP3Q4ZPSETFE"
+  ttl = 300
+  records = element(aws_spot_instance_request.roboshop.*.primary_network_interface_id,count.index )
 }
 
 output "securitygroups" {
