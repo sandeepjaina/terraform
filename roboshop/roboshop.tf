@@ -45,7 +45,7 @@ resource "null_resource" "provisioning" {
       "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-scripting",
       "cd shell-scripting/roboshop",
       "sudo set-hostname ${element(var.components, count.index)}",
-      "sudo Make ${element(var.components, count.index)}"
+      "sudo make ${element(var.components, count.index)}"
     ]
 
   }
