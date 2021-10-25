@@ -9,13 +9,13 @@ resource "aws_spot_instance_request" "roboshop" {
   }
 
 }
-resource "aws_security_group_rule" "SG_ingress" {
-  from_port         = 0
-  protocol          = "-1"
-  security_group_id = "sg-e9533ef3"
-  to_port           = 0
-  type              = "ingress"
-}
+#resource "aws_security_group_rule" "SG_ingress" {
+#  from_port         = 0
+#  protocol          = "-1"
+#  security_group_id = "sg-e9533ef3"
+#  to_port           = 0
+#  type              = "ingress"
+#}
 
 
 
@@ -28,25 +28,25 @@ resource "aws_ec2_tag" "tagname" {
 }
 
 
-#resource "null_resource" "provisioning" {
-#  count = length(var.components)
-#
-#  provisioner "remote-exec" {
-#    connection {
-#      host = element(aws_spot_instance_request.roboshop.*.public_ip, count.index)
-#      user = "centos"
-#      password = "DevOps321"
-#    }
-#    inline = [
-#      "cd /home/centos/",
-#      "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-scripting",
-#      "cd shell-scripting/roboshop",
-#      "sudo set-hostname ${element(var.components, count.index)}"
-#
-#    ]
-#
-#  }
-#}
+resource "null_resource" "provisioning" {
+  count = length(var.components)
+
+  provisioner "remote-exec" {
+    connection {
+      host = element(aws_spot_instance_request.roboshop.*.public_ip, count.index)
+      user = "centos"
+      password = "DevOps321"
+    }
+    inline = [
+      "cd /home/centos/",
+      "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-scripting",
+      "cd shell-scripting/roboshop",
+      "sudo set-hostname ${element(var.components, count.index)}"
+
+    ]
+
+  }
+}
 
 output "securitygroups" {
   value = aws_spot_instance_request.roboshop.*.security_groups
