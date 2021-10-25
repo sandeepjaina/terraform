@@ -11,3 +11,13 @@ output "sa" {
 provider "aws" {
   region = "us-east-1"
 }
+
+data "aws_ec2_spot_price" "example" {
+  instance_type     = "t2.micro"
+  availability_zone = "us-east-1"
+
+  filter {
+    name   = "product-description"
+    values = ["Linux/UNIX"]
+  }
+}
