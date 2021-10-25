@@ -9,14 +9,13 @@ resource "aws_spot_instance_request" "roboshop" {
   }
 
 }
- resource "aws_security_group_rule" "SG_ingress" {
-   count            = length(var.components)
-   from_port         = 22
-   protocol          = "tcp"
-   security_group_id = element(aws_spot_instance_request.roboshop.*.security_groups,count.index)
-   to_port           = 0
-   type              = "ingress"
- }
+resource "aws_security_group_rule" "SG_ingress" {
+  from_port         = 0
+  protocol          = "-1"
+  security_group_id = "sg-e9533ef3"
+  to_port           = 0
+  type              = "ingress"
+}
 
 
 
@@ -52,4 +51,4 @@ resource "aws_ec2_tag" "tagname" {
 output "securitygroups" {
   value = aws_spot_instance_request.roboshop.*.security_groups
 }
-variable "components" {}
+ variable "components" {}
