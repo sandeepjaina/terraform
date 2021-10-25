@@ -16,4 +16,25 @@ resource "aws_ec2_tag" "tagname" {
   value       = element(var.components, count.index)
 }
 
+
+resource "null_resource" "provisioning" {
+  count = length(var.components)
+
+  provisioner "remote-exec" {
+    connection {
+      host = element(aws_spot_instance_request.roboshop.*.public_ip, count.index)
+      type = "ssh"
+      user = "centos"
+      password = "DevOps321"
+    }
+    command = [
+      "cd /home/centos/",
+      "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-scripting",
+      "cd shell-scripting/roboshop",
+      "sudo set-hostname ${element(var.components, count.index)}"
+
+    ]
+
+  }
+}
 variable "components" {}
