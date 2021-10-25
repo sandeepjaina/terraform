@@ -4,6 +4,8 @@ resource "aws_spot_instance_request" "roboshop" {
   ami = "ami-0e4e4b2f188e91845"
   instance_type = "t2.micro"
   wait_for_fulfillment = true
+  security_groups = [sg-02ce125a5b631895c]
+  #vpc_security_group_ids = [sg-e9533ef3]
   tags = {
     Name = element(var.components, count.index)
   }
@@ -28,24 +30,30 @@ resource "aws_ec2_tag" "tagname" {
 }
 
 
-resource "null_resource" "provisioning" {
-  count = length(var.components)
+#resource "null_resource" "provisioning" {
+#  count = length(var.components)
+#
+#  provisioner "remote-exec" {
+#    connection {
+#      host = element(aws_spot_instance_request.roboshop.*.public_ip, count.index)
+#      user = "centos"
+#      password = "DevOps321"
+#    }
+#    inline = [
+#      "cd /home/centos/",
+#      "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-scripting",
+#      "cd shell-scripting/roboshop",
+#      "sudo set-hostname ${element(var.components, count.index)}"
+#    ]
+#
+#  }
+#}
 
-  provisioner "remote-exec" {
-    connection {
-      host = element(aws_spot_instance_request.roboshop.*.public_ip, count.index)
-      user = "centos"
-      password = "DevOps321"
-    }
-    inline = [
-      "cd /home/centos/",
-      "git clone https://DevOps-Batches@dev.azure.com/DevOps-Batches/DevOps57/_git/shell-scripting",
-      "cd shell-scripting/roboshop",
-      "sudo set-hostname ${element(var.components, count.index)}"
-
-    ]
-
-  }
+resource "aws_route53_record" "route" {
+  count = local.LENGTH
+  name    = element(var.components,count.index )
+  type    = "A"
+  zone_id = "Z05637993UP3Q4ZPSETFE"
 }
 
 output "securitygroups" {
