@@ -84,17 +84,17 @@ pipeline {
         }
 
         parallel{
-            stage('Parallel 1'){
-                steps {
-                    sh 'sleep 30'
-                }
-            }
 
-            stage('Parllel 2'){
                 steps {
                     sh 'sleep 30'
                 }
-            }
+
+
+
+                steps {
+                    sh 'sleep 30'
+                }
+
 
         }
 
