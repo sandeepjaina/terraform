@@ -38,6 +38,9 @@ pipeline {
     }
     stages{
         stage('ENV'){
+            environment {
+                Name = "yahoo.com"
+            }
             steps {
                 sh 'echo ${Name}'
 //                sh 'hostname'
