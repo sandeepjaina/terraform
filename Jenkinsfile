@@ -1,20 +1,19 @@
 pipeline {
     agent{
-        node { label 'controller' }
+        node { label 'centos' }
     }
 
 
     stages {
         stage('one') {
             steps {
-                echo 'Hello World'
+                $hostname
             }
         }
         stage('TWO') {
             steps {
                 sh '''
-                 pwd
-                 mkdir sandeep
+                 $hostname
                 '''
             }
         }
