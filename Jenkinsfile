@@ -34,7 +34,7 @@
 pipeline {
     agent any
     stages{
-        stage(ENV){
+        stage('ENV'){
             step{
                 sh hostname
             }
