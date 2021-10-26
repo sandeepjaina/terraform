@@ -33,7 +33,7 @@
 
 pipeline {
     agent any
-    tool {
+    tools {
         maven 'Maven'
     }
     parameters {
