@@ -1,11 +1,16 @@
 pipeline {
-    agent{
-        node { label 'centos' }
-    }
+//    agent{
+//        node { label 'centos' }
+//    }
+
+    agent none
 
 
     stages {
         stage('one') {
+            agent {
+                label "workstations"
+            }
             steps {
                 sh '''
                  hostname
@@ -13,6 +18,9 @@ pipeline {
             }
         }
         stage('TWO') {
+            agent {
+                label "centos"
+            }
             steps {
                 sh '''
                  hostname
