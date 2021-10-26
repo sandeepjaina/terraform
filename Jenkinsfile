@@ -34,12 +34,12 @@
 pipeline {
     agent any
     environment {
-        URL = "google.com"
+        Name = "google.com"
     }
     stages{
         stage('ENV'){
             steps {
-                sh 'echo ${URL}'
+                sh 'echo ${Name}'
 //                sh 'hostname'
             }
         }
