@@ -7,13 +7,15 @@ pipeline {
     stages {
         stage('one') {
             steps {
-                $hostname
+                sh '''
+                 hostname
+                '''
             }
         }
         stage('TWO') {
             steps {
                 sh '''
-                 $hostname
+                 hostname
                 '''
             }
         }
