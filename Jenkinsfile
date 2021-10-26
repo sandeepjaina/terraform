@@ -13,6 +13,7 @@ pipeline {
         stage('TWO') {
             steps {
                 sh '''
+                 pwd
                  mkdir sandeep
                 '''
             }
