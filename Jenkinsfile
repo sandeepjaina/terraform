@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('one') {
             agent {
-                label "workstations"
+                label "workstation"
             }
             steps {
                 sh '''
