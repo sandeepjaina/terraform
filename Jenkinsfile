@@ -35,7 +35,7 @@ pipeline {
     agent any
     environment {
         Name = "google.com"
-        ssh = credentails('DevOps')
+        ssh = credentials('DevOps')
     }
     stages{
         stage('ENV'){
