@@ -61,5 +61,9 @@ pipeline {
                 sh 'echo ${PERSON}'
             }
         }
+        stage('Tools')
+                {
+                    sh 'mvn clean'
+                }
     }
 }
