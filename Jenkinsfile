@@ -19,7 +19,7 @@ pipeline {
         }
         stage('TWO') {
             agent {
-                label "centos"
+                label "nodejs"
             }
             steps {
                 sh '''
