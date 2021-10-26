@@ -40,7 +40,7 @@ pipeline {
         stage('ENV'){
             steps {
                 sh 'echo ${URL}'
-                sh 'hostname'
+//                sh 'hostname'
             }
         }
     }
