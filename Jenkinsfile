@@ -13,8 +13,10 @@ pipeline {
         stage('Terraform init'){
             steps{
                 sh '''
-                cd multi_env
-                terraform init -backend-config=env/dev-backend.tfvars
+//                cd multi_env
+//                terraform init -backend-config=env/dev-backend.tfvars
+                  cd roboshop
+                  terraform init
                 '''
             }
         }
@@ -25,8 +27,10 @@ pipeline {
             }
             steps{
                 sh '''
-                cd multi_env
-                terraform apply -auto-approve -var-file=env/dev.tfvars
+//                cd multi_env
+//                terraform apply -auto-approve -var-file=env/dev.tfvars
+                  cd roboshop
+                  terraform apply -auto-approve
                 '''
             }
 
@@ -37,8 +41,10 @@ pipeline {
             }
             steps{
                 sh '''
-                cd multi_env
-                terraform destroy -auto-approve -var-file=env/dev.tfvars
+//                cd multi_env
+//                terraform destroy -auto-approve -var-file=env/dev.tfvars
+                   cd roboshop
+                   terraform destroy -auto-approve
                 '''
             }
 
