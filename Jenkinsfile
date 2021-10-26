@@ -33,10 +33,14 @@
 
 pipeline {
     agent any
+    enviorment{
+        URL = 'google.com'
+    }
     stages{
         stage('ENV'){
             steps {
-                sh hostname
+                sh 'echo ${URL}'
+                sh 'hostname'
             }
         }
     }
