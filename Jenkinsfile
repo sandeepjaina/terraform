@@ -35,6 +35,7 @@ pipeline {
     agent any
     environment {
         Name = "google.com"
+        ssh = credentails('DevOps')
     }
     stages{
         stage('ENV'){
@@ -43,7 +44,7 @@ pipeline {
             }
             steps {
                 sh 'echo ${Name}'
-//                sh 'hostname'
+                sh 'echo ${ssh}'
             }
         }
     }
