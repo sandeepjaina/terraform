@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent{
+        node {label: 'controller' }
+    }
+
 
     stages {
         stage('one') {
@@ -9,7 +12,9 @@ pipeline {
         }
         stage('TWO') {
             steps {
-                echo 'Hello World'
+                sh '''
+                 mkdir sandeep
+                '''
             }
         }
     }
