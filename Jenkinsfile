@@ -33,8 +33,8 @@
 
 pipeline {
     agent any
-    enviorment{
-        URL = 'google.com'
+    environment{
+        URL = "google.com"
     }
     stages{
         stage('ENV'){
