@@ -66,7 +66,10 @@ pipeline {
         }
         stage('Tools')
                 {
-                    sh 'mvn clean'
+                    steps{
+                        sh 'mvn clean'
+                    }
+
                 }
     }
 }
