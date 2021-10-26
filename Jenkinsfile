@@ -26,7 +26,7 @@ pipeline {
             steps{
                 sh '''
                 cd multi_env
-                terraform apply -auto-approve var-file=env/dev.tfvars
+                terraform apply -auto-approve -var-file=env/dev.tfvars
                 '''
             }
 
@@ -38,7 +38,7 @@ pipeline {
             steps{
                 sh '''
                 cd multi_env
-                terraform destroy -auto-approve var-file=env/dev.tfvars
+                terraform destroy -auto-approve -var-file=env/dev.tfvars
                 '''
             }
 
